@@ -32,7 +32,7 @@
 			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		          data-key="<?php echo $stripe['publishable_key']; ?>"
 		          data-description="Order payment" 
-		          data-amount="<?= str_replace('.', '', (string) number_format($orders['total'], 2))?>"
+		          data-amount="<?= str_replace('.', '', (string) number_format($orders['total'], 2, '.', ''))?>"
 		          data-locale="auto">
 		   	</script>
 		</div>

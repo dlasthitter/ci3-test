@@ -150,9 +150,8 @@ window.serverProcess = function(opts) {
 
             unloading();
 
+            var json = response;
             try{
-                var json = $.parseJSON(response);
-
                 /*
                  * Check if session expired
                  */

@@ -11,7 +11,7 @@
 
 				modConfirm('Are you sure you want to remove this?', function() {
 					serverProcess({
-						action : 'shop/removeItem',
+						action : 'api/shop/removeitem',
 						data : {
 							id : id
 						},
@@ -37,7 +37,7 @@
 				var id = $(this).attr('data-id');
 
 				serverProcess({
-					action : 'shop/addToCart',
+					action : 'api/shop/addtocart',
 					data : {
 						id : id,
 						qty : $('#qty_' + id).val()
