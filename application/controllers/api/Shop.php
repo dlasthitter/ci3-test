@@ -22,8 +22,7 @@ class Shop extends REST_Controller {
     	$id = $this->input->post('id');
 		$qty = (int)$this->input->post('qty');
 
-		$orders = $this->session->userdata("orders");
-		if (!isset($orders)) $orders = [];
+		$orders = getOrders($this);
 
 		/**
 		 * Check if item found and has enough quantity
@@ -66,13 +65,7 @@ class Shop extends REST_Controller {
 			'qty'  => $orderQty
 		];
 
-		$total = 0;
-
-		foreach($orders['items'] as $order) {
-			$total += $order['item']->price * $order['qty'];
-		}
-
-		$orders['total'] = $total;
+		$orders['total'] = calculateTotal($orders);
 
 		$this->session->set_userdata("orders", $orders);
 
@@ -84,8 +77,7 @@ class Shop extends REST_Controller {
 
     public function removeitem_post()
 	{
-		$orders = $this->session->userdata("orders");
-		if (!isset($orders)) $orders = [];
+		$orders = getOrders($this);
 
 		$id = $this->input->post('id');
 		
@@ -106,14 +98,8 @@ class Shop extends REST_Controller {
 			$orders = [];
 		}
 
-		if ($orders) {
-			$total = 0;
-
-			foreach($orders['items'] as $order) {
-				$total += $order['item']->price * $order['qty'];
-			}
-
-			$orders['total'] = $total;
+		if ($orders) {	
+			$orders['total'] = calculateTotal($orders);
 		}
 
 		$this->session->set_userdata("orders", $orders);

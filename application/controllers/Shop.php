@@ -11,9 +11,7 @@ class Shop extends CI_Controller {
 
 	public function index()
 	{
-		//$this->session->unset_userdata("orders");
-		$orders = $this->session->userdata("orders");
-		if (!isset($orders)) $orders = [];
+		$orders = getOrders($this);
 
 		$data['items'] = $this->item->activeItems();
 
@@ -26,8 +24,7 @@ class Shop extends CI_Controller {
 	{	
 		$data['stripe'] = $this->config->item('stripe');
 
-		$orders = $this->session->userdata("orders");
-		if (!isset($orders)) $orders = [];
+		$orders = getOrders($this);
 
 		$data['orders'] = $orders;
 		
@@ -38,8 +35,7 @@ class Shop extends CI_Controller {
 	{
 		$data['stripe'] = $this->config->item('stripe');
 
-		$orders = $this->session->userdata("orders");
-		if (!isset($orders)) $orders = [];
+		$orders = getOrders($this);
 
 		$stripeEmail     = $this->input->post('stripeEmail');
 		$stripeToken     = $this->input->post('stripeToken');

@@ -9,7 +9,10 @@ if ( ! function_exists('json'))
 
 		return TRUE;
 	}
+}
 
+if ( ! function_exists('render'))
+{
 	function render($ci, $template = [], $data = [])
 	{
 		$ci->load->view('header', $data);
@@ -23,5 +26,30 @@ if ( ! function_exists('json'))
 		}
 
 		$ci->load->view('footer', $data);
+	}
+}
+
+if ( ! function_exists('getOrders'))
+{
+	function getOrders($ci)
+	{
+		$orders = $ci->session->userdata("orders");
+		if (!isset($orders)) $orders = [];
+
+		return $orders;
+	}
+}
+
+if ( ! function_exists('calculateTotal'))
+{
+	function calculateTotal($orders)
+	{
+		$total = 0;
+
+		foreach($orders['items'] as $order) {
+			$total += $order['item']->price * $order['qty'];
+		}
+
+		return $total;
 	}
 }
