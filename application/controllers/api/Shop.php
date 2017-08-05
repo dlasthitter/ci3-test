@@ -4,7 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH . 'libraries/REST_Controller.php';
 
-class Shop extends REST_Controller {
+class Shop extends REST_Controller 
+{
 	function __construct()
     {
         // Construct the parent class
@@ -45,13 +46,13 @@ class Shop extends REST_Controller {
 
 		$item = $item->row();
 
-		$orderQty = 0;
+		//$orderQty = 0;
 
-		if (isset($orders['items'])) {
-			$orderQty = (array_key_exists($id, $orders['items'])) ? $orders['items'][$id]['qty'] : 0;
-		}
+		//if (isset($orders['items'])) {
+		//	$orderQty = (array_key_exists($id, $orders['items'])) ? $orders['items'][$id]['qty'] : 0;
+		//}
 
-		$orderQty += $qty;
+		$orderQty = $qty;
 	
 		if ($orderQty > $item->qty) {
 			return $this->set_response([

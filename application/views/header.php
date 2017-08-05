@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<script type="text/javascript">
 		var app = {
-			urlsite : '<?=$this->config->config['base_url']?>'
+			urlsite : '<?=$this->config->item('base_url')?>'
 		};
 
 	</script>
