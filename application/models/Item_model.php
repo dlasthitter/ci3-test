@@ -18,5 +18,12 @@ class Item_model extends CI_Model {
 			->get("items");
 
     }
+
+    function getItem($item_id=0)
+    {
+        return $this->db
+            ->where("item_id", $item_id)
+            ->get("items");
+    }
    
 }
