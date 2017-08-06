@@ -60,7 +60,7 @@ class Shop extends CI_Controller
 
 			$charge = \Stripe\Charge::create(array(
 			  'customer' => $customer->id,
-			  'amount'   => str_replace('.', '', (string) number_format($orders['total'], 2, '.', '')),
+			  'amount'   => $orders['total'] * 100,
 			  'currency' => 'usd'
 			));
 			

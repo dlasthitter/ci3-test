@@ -70,10 +70,13 @@ class Shop extends REST_Controller
 
 		$this->session->set_userdata("orders", $orders);
 
-        return $this->set_response([
-			'success'   => TRUE,
-			'orderHtml' => $this->load->view('shop/order', ['orders' => $orders], TRUE)
-		], REST_Controller::HTTP_CREATED); 
+		$json['success'] = TRUE;
+
+		if (ENVIRONMENT != 'testing') {
+			$json['orderHtml'] = $this->load->view('shop/order', ['orders' => $orders], TRUE);
+		}
+
+        return $this->set_response($json, REST_Controller::HTTP_CREATED); 
     }
 
     public function removeitem_post()
@@ -105,9 +108,42 @@ class Shop extends REST_Controller
 
 		$this->session->set_userdata("orders", $orders);
 
-		return $this->set_response([
-			'success'   => TRUE,
-			'orderHtml' => $this->load->view('shop/order', ['orders' => $orders], TRUE)
-		], REST_Controller::HTTP_CREATED);
+		$json['success'] = TRUE;
+
+		if (ENVIRONMENT != 'testing') {
+			$json['orderHtml'] = $this->load->view('shop/order', ['orders' => $orders], TRUE);
+		}
+
+        return $this->set_response($json, REST_Controller::HTTP_CREATED); 
+	}
+
+	public function teststripe_post()
+	{
+		$data['stripe'] = $this->config->item('stripe');
+		\Stripe\Stripe::setApiKey($data['stripe']['secret_key']);
+
+		$result = \Stripe\Token::create(
+            array(
+                "card" => array(
+                    "number" => "4242424242424242",
+				    "exp_month" => 1,
+				    "exp_year" => 2022,
+				    "cvc" => "314"
+                )
+            )
+        );
+
+        $token = $result['id'];
+
+        $charge = \Stripe\Charge::create(array(
+              "amount" => 50*100,
+              "currency" => "usd",
+              "card" => $token,
+              "description" => "Charge for test@example.com" 
+        ));
+
+        $json['success'] = TRUE;
+
+        return $this->set_response($json, REST_Controller::HTTP_CREATED); 
 	}
 }

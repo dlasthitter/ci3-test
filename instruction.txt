@@ -1,0 +1,4 @@
+To test:
+
+$ vendor/bin/codecept run acceptance ShopCest.php --steps
+
