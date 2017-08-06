@@ -1,7 +1,7 @@
 <?php
 
 
-class FirstCest
+class ShopCest
 {
     public function _before(AcceptanceTester $I)
     {
