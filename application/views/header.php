@@ -27,4 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<div id="container">
 		<div id="body">
+			<div class="menu" style="margin-bottom: 20px;">
+				<a href="<?=$this->config->item('base_url')?>"><i class="fa fa-home"></i> Shop</a>
+			</div>
 

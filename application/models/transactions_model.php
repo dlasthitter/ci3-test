@@ -56,4 +56,20 @@ class Transactions_model extends CI_Model
         $this->db->where("txn_id", $txn_id);  
         return $this->db->update("transactions");
 	}
+
+	public function getDetails($txn_id)
+	{
+		$qry = $this->db->get_where('transactions', ['txn_id' => $txn_id]);
+		$data['txn'] = $qry->row();
+
+
+		$qry = $this->db
+			->select('a.*, b.name, b.thumb')
+			->join("items b", "b.item_id = a.item_id")
+			->get_where('transaction_details a', ['txn_id' => $txn_id]);
+
+		$data['txn_details'] = $qry->result();
+
+		return $data;
+	}
 }

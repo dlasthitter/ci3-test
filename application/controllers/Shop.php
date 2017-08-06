@@ -77,6 +77,8 @@ class Shop extends CI_Controller
 
 			$this->transactions->updateStatus($txn->txn_id, Transactions_model::STATUS_SUCCESS);
 
+			$data = $this->transactions->getDetails($txn->txn_id);
+
 			render($this, 'shop/success', $data);
 		} catch(Exception $e) {
 			$data['error'] = $e->getMessage();

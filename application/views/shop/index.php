@@ -17,11 +17,13 @@
 						foreach ($items->result() as $key => $val):
 				?>
 							<tr>
-				          		<td></td>
 				          		<td>
-				          			<?= $val->name ?> <?= $val->price ?><br />
-				          			<input type="text" id="qty_<?= $val->item_id ?>" name="qty[<?= $val->item_id ?>]" class="form-control input-sm" /><br />
-				          			<a href="javascript:void(0)" data-id='<?= $val->item_id ?>' class="btn btn-sm btn-primary addToCart">Add to cart</a>
+				          			<img src='items/<?= $val->thumb ?>' width='100' /><br />
+				          			<?= $val->name ?> <?= currency($val->price) ?>
+				          		</td>
+				          		<td class="form-inline">
+				          			<input type="text" id="qty_<?= $val->item_id ?>" name="qty[<?= $val->item_id ?>]" class="form-control input-sm" style='margin-right: 10px;' />
+				          			<a href="javascript:void(0)" data-id='<?= $val->item_id ?>' class="btn btn-primary addToCart">Add to cart</a>
 				          		</td>
 			          		</tr>
 			    <?php	
