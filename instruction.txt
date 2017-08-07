@@ -1,11 +1,11 @@
-Installation
-1. Run 'php composer.phar update'
-2. Create  database 'shop'
-3. Import 'shop.sql'
-4. Visit url http://localhost/ci3/web/ (default)
+Installation Guide:
+1. git clone https://github.com/dlasthitter/ci3-test.git
+2. Run 'php composer.phar update'
+3. Create  database 'shop'
+4. Import 'shop.sql'
+5. Visit url http://localhost/ci3/web/ (default)
 
-To test:
-
+Test Guide:
 1. Run 'php vendor/bin/codecept bootstrap' once
 2. Run 'vendor/bin/codecept run acceptance ShopCest.php --steps'
 
