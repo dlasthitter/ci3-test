@@ -6,5 +6,6 @@ Installation
 
 To test:
 
-$ vendor/bin/codecept run acceptance ShopCest.php --steps
+1. Run 'php vendor/bin/codecept bootstrap' once
+2. Run 'vendor/bin/codecept run acceptance ShopCest.php --steps'
 
