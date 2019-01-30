@@ -1,7 +1,7 @@
 [
   {
     "type": "get",
-    "url": "shop/addtocart",
+    "url": "api/shop/addtocart",
     "title": "Add to cart",
     "version": "1.0.0",
     "group": "Shop",
@@ -31,7 +31,7 @@
   },
   {
     "type": "get",
-    "url": "shop/removeitem",
+    "url": "api/shop/removeitem",
     "title": "Remove item from the cart",
     "version": "1.0.0",
     "group": "Shop",
@@ -54,7 +54,7 @@
   },
   {
     "type": "get",
-    "url": "shop/teststripe",
+    "url": "api/shop/teststripe",
     "title": "Test Stripe payment gateway",
     "version": "1.0.0",
     "group": "Shop",
