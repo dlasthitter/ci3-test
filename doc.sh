@@ -1,0 +1,1 @@
+apidoc -i application/controllers/api/ -o web/documentations/ -v

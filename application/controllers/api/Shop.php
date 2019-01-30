@@ -18,6 +18,15 @@ class Shop extends REST_Controller
 		$this->load->model("Transactions_model", "transactions");
     }
 
+    /**
+     * @api {get} shop/addtocart Add to cart
+     * @apiVersion 1.0.0
+     * @apiGroup Shop
+     * @apiName Add to cart
+     *
+     * @apiParam {Number} id Product ID
+     * @apiParam {Number} qty Quantity
+     */
     public function addtocart_post()
     {
     	$id = $this->input->post('id');
@@ -79,6 +88,14 @@ class Shop extends REST_Controller
         return $this->set_response($json, REST_Controller::HTTP_CREATED); 
     }
 
+	/**
+     * @api {get} shop/removeitem Remove item from the cart
+     * @apiVersion 1.0.0
+     * @apiGroup Shop
+     * @apiName Remove item
+     *
+     * @apiParam {Number} id Product ID
+     */
     public function removeitem_post()
 	{
 		$orders = getOrders($this);
@@ -117,6 +134,13 @@ class Shop extends REST_Controller
         return $this->set_response($json, REST_Controller::HTTP_CREATED); 
 	}
 
+	/**
+     * @api {get} shop/teststripe Test Stripe payment gateway
+     * @apiVersion 1.0.0
+     * @apiGroup Shop
+     * @apiName Test Stripe payment
+     *
+     */
 	public function teststripe_post()
 	{
 		$data['stripe'] = $this->config->item('stripe');

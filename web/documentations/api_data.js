@@ -1,0 +1,65 @@
+define({ "api": [
+  {
+    "type": "get",
+    "url": "shop/addtocart",
+    "title": "Add to cart",
+    "version": "1.0.0",
+    "group": "Shop",
+    "name": "Add_to_cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Product ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "qty",
+            "description": "<p>Quantity</p>"
+          }
+        ]
+      }
+    },
+    "filename": "application/controllers/api/Shop.php",
+    "groupTitle": "Shop"
+  },
+  {
+    "type": "get",
+    "url": "shop/removeitem",
+    "title": "Remove item from the cart",
+    "version": "1.0.0",
+    "group": "Shop",
+    "name": "Remove_item",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Product ID</p>"
+          }
+        ]
+      }
+    },
+    "filename": "application/controllers/api/Shop.php",
+    "groupTitle": "Shop"
+  },
+  {
+    "type": "get",
+    "url": "shop/teststripe",
+    "title": "Test Stripe payment gateway",
+    "version": "1.0.0",
+    "group": "Shop",
+    "name": "Test_Stripe_payment",
+    "filename": "application/controllers/api/Shop.php",
+    "groupTitle": "Shop"
+  }
+] });
