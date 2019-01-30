@@ -10,9 +10,9 @@ modules:
         - Asserts
         - REST:
             depends: PhpBrowser 
-            url: 'http://localhost/ci3/web/index-test.php'
+            url: 'http://ci3.local/index-test.php'
         - PhpBrowser:
-            url: http://localhost/ci3/web/index-test.php
+            url: http://ci3.local/index-test.php
         - \Helper\Acceptance
         - \Helper\Functional
 
