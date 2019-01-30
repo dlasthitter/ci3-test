@@ -19,7 +19,7 @@ class Shop extends REST_Controller
     }
 
     /**
-     * @api {get} api/shop/addtocart Add to cart
+     * @api {post} api/shop/addtocart Add to cart
      * @apiVersion 1.0.0
      * @apiGroup Shop
      * @apiName Add to cart
@@ -89,7 +89,7 @@ class Shop extends REST_Controller
     }
 
 	/**
-     * @api {get} api/shop/removeitem Remove item from the cart
+     * @api {post} api/shop/removeitem Remove item from the cart
      * @apiVersion 1.0.0
      * @apiGroup Shop
      * @apiName Remove item
@@ -135,7 +135,7 @@ class Shop extends REST_Controller
 	}
 
 	/**
-     * @api {get} api/shop/teststripe Test Stripe payment gateway
+     * @api {post} api/shop/teststripe Test Stripe payment gateway
      * @apiVersion 1.0.0
      * @apiGroup Shop
      * @apiName Test Stripe payment

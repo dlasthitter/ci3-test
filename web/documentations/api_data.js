@@ -1,6 +1,6 @@
 define({ "api": [
   {
-    "type": "get",
+    "type": "post",
     "url": "api/shop/addtocart",
     "title": "Add to cart",
     "version": "1.0.0",
@@ -30,7 +30,7 @@ define({ "api": [
     "groupTitle": "Shop"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "api/shop/removeitem",
     "title": "Remove item from the cart",
     "version": "1.0.0",
@@ -53,7 +53,7 @@ define({ "api": [
     "groupTitle": "Shop"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "api/shop/teststripe",
     "title": "Test Stripe payment gateway",
     "version": "1.0.0",
